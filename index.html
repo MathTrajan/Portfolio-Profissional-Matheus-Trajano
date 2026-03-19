@@ -70,6 +70,32 @@
     ul { list-style: none; }
 
     /* ===========================
+       PROJECT IMAGES ADJUSTMENTS
+    =========================== */
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Preenche o card sem distorcer a imagem */
+      display: block;
+      border-radius: inherit;
+      transition: transform 0.5s ease;
+    }
+
+    /* Zoom suave na imagem quando passar o mouse no card */
+    .project-card:hover .project-img {
+      transform: scale(1.1);
+    }
+
+    .project-thumb-inner {
+      padding: 0 !important; /* Remove o espaço para a imagem encostar nas bordas */
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+    }
+
+    /* ===========================
        SCROLLBAR
     =========================== */
     ::-webkit-scrollbar { width: 6px; }
@@ -2180,37 +2206,74 @@
       </div>
 
       <div class="projects-grid">
+        
         <!-- Project 1 -->
-        <div class="project-card fade-up">
+<div class="project-card fade-up">
           <div class="project-thumb">
-            <div class="project-thumb-inner proj-thumb-1">📚</div>
+            <div class="project-thumb-inner proj-thumb-1">
+              <img src="E-commerce Pró Colchões.png" alt="E-commerce Pró Colchões" class="project-img">
+            </div>
             <div class="project-overlay">
               <div class="project-overlay-links">
-                <div class="proj-link-btn" title="Projeto corporativo interno">
-                  <i class="fas fa-lock"></i>
-                </div>
+                <a href="https://github.com/MathTrajan/Desenvolvimento-Frontend-Site-Pro-Colchoes" target="_blank" class="proj-link-btn" title="Ver código no GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
               </div>
             </div>
           </div>
           <div class="project-body">
-            <div class="project-type">B2B Platform</div>
-            <div class="project-title">Portal de Catálogos B2B</div>
+            <div class="project-type">Frontend & B2B Platform</div>
+            <div class="project-title">E-commerce Pró Colchões</div>
             <p class="project-desc">
-              Página de catálogos digitais para a plataforma B2B da Probel/Prodormir com cards interativos, animações de scroll e integração com Google Drive para visualização de PDFs.
+              Desenvolvimento completo de interfaces para o portal B2B (Probel/Prodormir): landing pages, catálogos digitais interativos, popups de captura de leads e páginas institucionais responsivas.
             </p>
             <div class="project-tech">
               <span class="tech-pill">HTML5</span>
               <span class="tech-pill">CSS3</span>
               <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">Google Drive</span>
+              <span class="tech-pill">UI/UX</span>
             </div>
           </div>
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card fade-up fade-up-delay-1">
+<div class="project-card fade-up fade-up-delay-1">
           <div class="project-thumb">
-            <div class="project-thumb-inner proj-thumb-2">🤖</div>
+            <div class="project-thumb-inner proj-thumb-2">
+              <img src="Jarvis Chat AI.png" alt="Jarvis Chat AI" class="project-img">
+            </div>
+            <div class="project-overlay">
+              <div class="project-overlay-links">
+                <a href="https://github.com/MathTrajan/Jarvis-Chat-Assistente-Virtual-Inteligente" target="_blank" class="proj-link-btn" title="Ver código no GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://jarvis-assistente.onrender.com" target="_blank" class="proj-link-btn" title="Acessar Assistente Online">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-type">IA & Node.js</div>
+            <div class="project-title">Jarvis Chat AI</div>
+            <p class="project-desc">
+              Assistente virtual inteligente com arquitetura multimodelo (Groq e Google Gemini). Desenvolvido com backend em Node.js para alta performance, interface Dark Mode e deploy automatizado via Render.
+            </p>
+            <div class="project-tech">
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">Express</span>
+              <span class="tech-pill">Groq API</span>
+              <span class="tech-pill">Gemini API</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+<div class="project-card fade-up fade-up-delay-2">
+          <div class="project-thumb">
+            <div class="project-thumb-inner proj-thumb-3">
+              <img src="Automação de Fluxos Operacionais.png" alt="Automação de Fluxos" class="project-img">
+            </div>
             <div class="project-overlay">
               <div class="project-overlay-links">
                 <div class="proj-link-btn" title="Projeto corporativo interno">
@@ -2234,10 +2297,12 @@
           </div>
         </div>
 
-        <!-- Project 3 -->
-        <div class="project-card fade-up fade-up-delay-2">
+        <!-- Project 4 -->
+<div class="project-card fade-up">
           <div class="project-thumb">
-            <div class="project-thumb-inner proj-thumb-3">📊</div>
+            <div class="project-thumb-inner proj-thumb-4">
+              <img src="Dashboard Estratégico Power BI.png" alt="Dashboard Estratégico Power BI" class="project-img">
+            </div>
             <div class="project-overlay">
               <div class="project-overlay-links">
                 <div class="proj-link-btn" title="Projeto corporativo interno">
@@ -2250,7 +2315,7 @@
             <div class="project-type">Business Intelligence</div>
             <div class="project-title">Dashboard Estratégico Power BI</div>
             <p class="project-desc">
-              Painéis gerenciais e dashboards estratégicos desenvolvidos com Power BI, integrando dados do SQL Server e Excel para apoio à tomada de decisão da liderança.
+              Painéis gerenciais e dashboards estratégicos desenvolvidos com Power BI, integrando dados do SQL Server, API e Excel para apoio à tomada de decisão da liderança.
             </p>
             <div class="project-tech">
               <span class="tech-pill">Power BI</span>
@@ -2261,10 +2326,41 @@
           </div>
         </div>
 
-        <!-- Project 4 -->
-        <div class="project-card fade-up">
+        <!-- Project 5 -->
+<div class="project-card fade-up fade-up-delay-1">
           <div class="project-thumb">
-            <div class="project-thumb-inner proj-thumb-4">💬</div>
+            <div class="project-thumb-inner proj-thumb-5">
+              <img src="Análise Top 100 Amazon Books.png" alt="Análise Top 100 Amazon Books" class="project-img">
+            </div>
+            <div class="project-overlay">
+              <div class="project-overlay-links">
+                <a href="https://github.com/MathTrajan/Top-100-Amazon-Books-Insights-Interativos" target="_blank" class="proj-link-btn" title="Ver código no GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-type">Data Science & Python</div>
+            <div class="project-title">Análise Top 100 Amazon Books</div>
+            <p class="project-desc">
+              Dashboard interativo focado na análise de mercado editorial. Desenvolvido com Python para manipulação avançada de datasets massivos e visualização dinâmica de métricas de avaliação e precificação.
+            </p>
+            <div class="project-tech">
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Pandas</span>
+              <span class="tech-pill">Streamlit</span>
+              <span class="tech-pill">Data Analysis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+<div class="project-card fade-up fade-up-delay-2">
+          <div class="project-thumb">
+            <div class="project-thumb-inner proj-thumb-6">
+              <img src="Arquitetura de Backend em Java.png" alt="Arquitetura Backend Java" class="project-img">
+            </div>
             <div class="project-overlay">
               <div class="project-overlay-links">
                 <div class="proj-link-btn" title="Projeto de estudo/pessoal">
@@ -2274,69 +2370,16 @@
             </div>
           </div>
           <div class="project-body">
-            <div class="project-type">IA & Python</div>
-            <div class="project-title">ChatBot com IA em Python</div>
+            <div class="project-type">Backend & POO</div>
+            <div class="project-title">Arquitetura de Backend em Java</div>
             <p class="project-desc">
-              Desenvolvimento de chatbot inteligente utilizando Python com integração a modelos de linguagem, aplicando conhecimentos do curso Python para IA da Alura.
+              Desenvolvimento de backend estruturado focado em Programação Orientada a Objetos. Implementação robusta de classes, construtores, e manipulação avançada de dados utilizando bibliotecas como Json e Maven.
             </p>
             <div class="project-tech">
-              <span class="tech-pill">Python</span>
-              <span class="tech-pill">AI/LLM</span>
-              <span class="tech-pill">APIs</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="project-card fade-up fade-up-delay-1">
-          <div class="project-thumb">
-            <div class="project-thumb-inner proj-thumb-5">🛒</div>
-            <div class="project-overlay">
-              <div class="project-overlay-links">
-                <div class="proj-link-btn" title="Projeto corporativo interno">
-                  <i class="fas fa-lock"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-type">B2B Platform</div>
-            <div class="project-title">Lead Page & Popup de Captura</div>
-            <p class="project-desc">
-              Landing page e popup de captura de leads para o portal B2B da Probel, com formulário de cadastro, validação client-side e design responsivo mobile-first.
-            </p>
-            <div class="project-tech">
-              <span class="tech-pill">HTML5</span>
-              <span class="tech-pill">CSS3</span>
-              <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">UX/UI</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6 -->
-        <div class="project-card fade-up fade-up-delay-2">
-          <div class="project-thumb">
-            <div class="project-thumb-inner proj-thumb-6">🏢</div>
-            <div class="project-overlay">
-              <div class="project-overlay-links">
-                <div class="proj-link-btn" title="Projeto corporativo interno">
-                  <i class="fas fa-lock"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="project-type">Web Development</div>
-            <div class="project-title">Páginas Institucionais B2B</div>
-            <p class="project-desc">
-              Conjunto de páginas HTML para o portal B2B: Política de Privacidade, Troca e Devolução, FAQ, Carrossel de Notícias e página "Conheça Nossa História" da Probel.
-            </p>
-            <div class="project-tech">
-              <span class="tech-pill">HTML5</span>
-              <span class="tech-pill">CSS3</span>
-              <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">Responsive</span>
+              <span class="tech-pill">Java</span>
+              <span class="tech-pill">POO</span>
+              <span class="tech-pill">Json</span>
+              <span class="tech-pill">Maven</span>
             </div>
           </div>
         </div>
@@ -2457,46 +2500,55 @@
         <p class="section-subtitle">Soluções técnicas sob medida para empresas e projetos que buscam eficiência, dados e presença digital.</p>
       </div>
 
-      <div class="services-grid">
+<div class="services-grid">
         <div class="service-card fade-up">
-          <div class="service-icon si-blue"><i class="fas fa-code"></i></div>
-          <div class="service-title">Desenvolvimento Web</div>
-          <p class="service-desc">Criação de sites, landing pages, portais e componentes web responsivos e modernos com HTML5, CSS3 e JavaScript.</p>
+          <div class="service-icon si-blue"><i class="fas fa-server"></i></div>
+          <div class="service-title">Backend & APIs</div>
+          <p class="service-desc">
+            Desenvolvimento de sistemas robustos e APIs REST utilizando Node.js, Java (POO) e Python. Foco em arquitetura de software, integração de sistemas e lógica de servidor.
+          </p>
         </div>
 
         <div class="service-card fade-up fade-up-delay-1">
           <div class="service-icon si-purple"><i class="fas fa-robot"></i></div>
-          <div class="service-title">Automações & Integrações</div>
-          <p class="service-desc">Desenvolvimento de automações com Python e integração de sistemas via APIs REST, eliminando retrabalho e otimizando fluxos.</p>
+          <div class="service-title">Automações & Scripts</div>
+          <p class="service-desc">
+            Criação de scripts Python e PowerShell para automação de tarefas manuais, integração de ERPs e processamento automatizado de arquivos de dados.
+          </p>
         </div>
 
         <div class="service-card fade-up fade-up-delay-2">
           <div class="service-icon si-orange"><i class="fas fa-chart-line"></i></div>
           <div class="service-title">Business Intelligence</div>
-          <p class="service-desc">Criação de dashboards e relatórios estratégicos com Power BI, análise de dados com SQL Server e Excel Avançado.</p>
+          <p class="service-desc">
+            Construção de dashboards estratégicos em Power BI com modelagem DAX, transformando dados brutos em insights para suporte à decisão da liderança.
+          </p>
         </div>
 
         <div class="service-card fade-up">
           <div class="service-icon si-green"><i class="fas fa-database"></i></div>
           <div class="service-title">Banco de Dados & SQL</div>
-          <p class="service-desc">Modelagem, otimização de queries, stored procedures e manutenção de bancos de dados SQL Server com foco em performance.</p>
+          <p class="service-desc">
+            Modelagem relacional e otimização de queries em SQL Server. Desenvolvimento de stored procedures e análise técnica de performance em bases de dados.
+          </p>
         </div>
 
         <div class="service-card fade-up fade-up-delay-1">
           <div class="service-icon si-red"><i class="fas fa-brain"></i></div>
-          <div class="service-title">IA & ChatBots</div>
-          <p class="service-desc">Desenvolvimento de assistentes virtuais e chatbots com Python, integrando modelos de linguagem (LLMs) para automação de atendimento.</p>
+          <div class="service-title">Inteligência Artificial</div>
+          <p class="service-desc">
+            Implementação de assistentes virtuais inteligentes (Jarvis AI) integrando APIs da Groq e Gemini para automação de conversas e análise de dados.
+          </p>
         </div>
 
         <div class="service-card fade-up fade-up-delay-2">
-          <div class="service-icon si-teal"><i class="fas fa-project-diagram"></i></div>
-          <div class="service-title">Gestão de Plataformas B2B</div>
-          <p class="service-desc">Suporte, manutenção, evolução e monitoramento de plataformas B2B com foco em disponibilidade, segurança e experiência do usuário.</p>
+          <div class="service-icon si-teal"><i class="fas fa-cogs"></i></div>
+          <div class="service-title">Arquitetura B2B</div>
+          <p class="service-desc">
+            Evolução técnica e manutenção de plataformas e-commerce B2B, garantindo a integração eficiente entre o frontend e as regras de negócio do backend.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-
   <!-- ===========================
        CONTACT
   =========================== -->
@@ -2615,7 +2667,7 @@
       <div class="footer-inner">
         <div class="footer-logo">&lt;matheus.dev/&gt;</div>
         <div class="footer-copy">
-          © 2025 <span>Matheus Trajano</span>
+         <p>&lt;/&gt; Desenvolvido por <span>Matheus Trajano</span> &copy; 2026</p>
         </div>
         <div class="footer-links">
           <a href="#hero">Início</a>
