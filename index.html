@@ -1539,6 +1539,11 @@
 
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
+    .form-group select option {
+      background-color: var(--bg-card);
+      color: var(--text-primary);
+    }
+
     .btn-send {
       width: 100%;
       background: var(--gradient-main);
@@ -1585,6 +1590,8 @@
       padding: 40px 0;
       position: relative;
       z-index: 1;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
     }
 
     .footer-inner {
@@ -2546,9 +2553,10 @@
           <div class="service-title">Arquitetura B2B</div>
           <p class="service-desc">
             Evolução técnica e manutenção de plataformas e-commerce B2B, garantindo a integração eficiente entre o frontend e as regras de negócio do backend.
-          </p>
+</p>
         </div>
-      </div>
+      </div> </div>
+  </section>
   <!-- ===========================
        CONTACT
   =========================== -->
@@ -2619,22 +2627,22 @@
         </div>
 
         <!-- Form -->
-        <div class="contact-form-wrap fade-up fade-up-delay-1">
+<div class="contact-form-wrap fade-up fade-up-delay-1">
           <div class="form-title"><i class="fas fa-paper-plane" style="color:var(--blue);margin-right:8px"></i> Enviar Mensagem</div>
           <form id="contactForm" onsubmit="submitForm(event)">
             <div class="form-row">
               <div class="form-group">
                 <label>Nome</label>
-                <input type="text" placeholder="Seu nome" required />
+                <input type="text" name="name" placeholder="Seu nome" required />
               </div>
               <div class="form-group">
                 <label>E-mail</label>
-                <input type="email" placeholder="seu@email.com" required />
+                <input type="email" name="email" placeholder="seu@email.com" required />
               </div>
             </div>
             <div class="form-group">
               <label>Assunto</label>
-              <select required>
+              <select name="subject" required>
                 <option value="" disabled selected>Selecione o assunto...</option>
                 <option>Proposta de Trabalho</option>
                 <option>Projeto Freelance</option>
@@ -2645,13 +2653,13 @@
             </div>
             <div class="form-group">
               <label>Mensagem</label>
-              <textarea placeholder="Descreva seu projeto, ideia ou proposta..." required></textarea>
+              <textarea name="message" placeholder="Descreva seu projeto, ideia ou proposta..." required></textarea>
             </div>
-            <button type="submit" class="btn-send">
+            <button type="submit" id="btnSubmit" class="btn-send">
               <i class="fas fa-paper-plane"></i> Enviar Mensagem
             </button>
           </form>
-          <div class="form-success" id="formSuccess">
+          <div class="form-success" id="formSuccess" style="display:none">
             <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entrarei em contato em breve.
           </div>
         </div>
@@ -2667,7 +2675,7 @@
       <div class="footer-inner">
         <div class="footer-logo">&lt;matheus.dev/&gt;</div>
         <div class="footer-copy">
-         <p>&lt;/&gt; Desenvolvido por <span>Matheus Trajano</span> &copy; 2026</p>
+          <p>&lt;/&gt; Desenvolvido por <span>Matheus Trajano</span> &copy; 2026</p>
         </div>
         <div class="footer-links">
           <a href="#hero">Início</a>
@@ -2808,15 +2816,35 @@
     if (heroStats) heroObserver.observe(heroStats);
 
     // ---- Form submit ----
-    function submitForm(e) {
-      e.preventDefault();
-      const btn = document.querySelector('.btn-send');
+// ---- Form submit (Formspree API) ----
+    function submitForm(event) {
+      event.preventDefault(); 
+      
+      var form = document.getElementById("contactForm");
+      var btn = document.getElementById("btnSubmit");
+      var successMsg = document.getElementById("formSuccess");
+
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
       btn.disabled = true;
-      setTimeout(() => {
-        document.getElementById('contactForm').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      }, 1500);
+
+      fetch("https://formspree.io/f/xwvryqna", {
+        method: "POST",
+        body: new FormData(event.target),
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        if (response.ok) {
+          form.style.display = "none";
+          successMsg.style.display = "block";
+        } else {
+          alert("Erro ao enviar. Verifique os dados e tente novamente.");
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+          btn.disabled = false;
+        }
+      }).catch(function(error) {
+        alert("Erro de conexão. Tente novamente mais tarde.");
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+        btn.disabled = false;
+      });
     }
 
     // ---- Smooth initial load ----
