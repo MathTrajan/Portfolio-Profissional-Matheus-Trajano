@@ -1,6 +1,6 @@
 # 🚀 Portfólio Profissional — Matheus Trajano
 
-> Portfólio profissional de **Matheus Trajano Ferreira Alves**, Desenvolvedor Web e Analista B2B, desenvolvido com HTML5, CSS3 e JavaScript puro.
+> Portfólio profissional de **Matheus Trajano Ferreira Alves**, Desenvolvedor Full Stack e Analista B2B, desenvolvido com HTML5, CSS3 e JavaScript puro.
 
 🔗 **[Acesse o Portfólio Online Aqui](https://matheus-dev-beryl.vercel.app/)**
 
